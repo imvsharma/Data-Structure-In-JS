@@ -51,4 +51,43 @@ class Linkedlist {
             previous.next = null
         }
     }
+
+    length = () => {
+        let len = 0;
+        if(!this.length) {
+            return len
+        } else {
+            current = this.head;
+            while (current) {
+                current = current.next;
+                len++
+            }
+            return len;
+        }
+    }
+
+    traverse = () => {
+        let arr = [];
+        if(!this.head) {
+            return 'Linked list is empty';
+        } else {
+            let current = this.head;
+            arr.push(current.value);
+            while(current.next) {
+                current = current.next;
+                arr.push(current.value)
+            }
+            return arr;
+        }
+    }
+
+    reverse = () => {
+        const arr = this.traverse();
+        var reverseArr = arr.reverse();
+        let reverseLinkedList = new Linkedlist();
+        for (var i=0; i< reverseArr.length; i++) {
+            reverseLinkedList.addAtEnd(reverseArr[i]);
+        }
+        return reverseLinkedList
+    }
 }
