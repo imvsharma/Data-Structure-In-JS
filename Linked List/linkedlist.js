@@ -90,4 +90,28 @@ class Linkedlist {
         }
         return reverseLinkedList
     }
+
+    remove = val => {
+        if(!this.head) {
+            return 'Linked list is empty';
+        } else {
+            let current = this.head;
+            if(current.value === val) {
+                this.head = current.next;
+            }else {
+                let previous = current;
+                while (current.next) {
+                    if(current.value === val) {
+                        previous.next = current.next;
+                        break;
+                    }
+                    previous = current;
+                    current = current.next
+                }
+                if(current.value === val) {
+                    previous.next = null;
+                }
+            }
+        }
+    }
 }
